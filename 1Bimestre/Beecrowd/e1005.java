@@ -4,8 +4,6 @@ considering that grade A has weight 3.5 and B has weight 7.5. Each grade can be 
 Don’t forget to print the end of line after the result, otherwise you will receive “Presentation Error”. Don’t forget the space before and after the 
 equal sign.
 */
-
-import java.io.IOException;
 import java.util.Scanner;
 
 public class e1005 {
@@ -15,6 +13,8 @@ public class e1005 {
 
         A = sc.nextDouble();
         B = sc.nextDouble();
+
+        sc.close();
 
         MEDIA = (A * 3.5)/11 + (B * 7.5)/11;
 

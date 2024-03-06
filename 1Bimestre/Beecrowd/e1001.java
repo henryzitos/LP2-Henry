@@ -9,6 +9,8 @@ public class e1001 {
         A = sc.nextInt();
         B = sc.nextInt();
         
+        sc.close();
+
         X = A + B;
         System.out.println("X = " + X);
     }

@@ -18,6 +18,8 @@ public class e1002 {
         R = sc.nextDouble();
         A = PI * (R*R);
 
+        sc.close();
+
         System.out.printf("A=%.4f\n", A);
  
     }
