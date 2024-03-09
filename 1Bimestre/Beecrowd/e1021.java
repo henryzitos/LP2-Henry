@@ -1,30 +1,40 @@
-/*
- * Read a value of floating point with two decimal places. This represents a monetary value. After this, 
- * calculate the smallest possible number of notes and coins on which the value can be decomposed. The
- * considered notes are of 100, 50, 20, 10, 5, 2. The possible coins are of 1, 0.50, 0.25, 0.10, 0.05 and 
- * 0.01. Print the message “NOTAS:” followed by the list of notes and the message “MOEDAS:” followed by 
- * the list of coins.
- */
-
 import java.util.Scanner;
 
 public class e1021 {
     public static void main(String[] args) {
         double dinheiro;
-        int n100, n50, n20, n10, n5, n2, m1, m50, m25, m10, m5, m01;
+        int[] notas = {10000, 5000, 2000, 1000, 500, 200};
+        int[] moedas = {100, 50, 25, 10, 5, 1};
         Scanner sc = new Scanner(System.in);
 
         dinheiro = sc.nextDouble();
         sc.close();
+        int valorCerto = (int) (dinheiro * 100);
 
-        /*
-        System.out.println("NOTAS:");
-        System.out.println(n100 + " nota(s) de R$ 100.00");
-        System.out.println(n50 + " nota(s) de R$ 50.00");
-        System.out.println(n20 + " nota(s) de R$ 20.00");
-        System.out.println(n10 + " nota(s) de R$ 10.00");
-        System.out.println(n5 + " nota(s) de R$ 5.00");
-        System.out.println(n2 + " nota(s) de R$ 2.00"); 
-        */
+        System.out.println("NOTAS:"); 
+        for (int nota : notas) { 
+            int quantidadeNotas = valorCerto / nota; 
+            System.out.printf("%d nota(s) de R$ %.2f%n", quantidadeNotas, (double) nota / 100); 
+            valorCerto %= nota; 
+        }
+
+        System.out.println("MOEDAS:"); 
+        for (int moeda : moedas) { 
+            int quantidadeMoedas = valorCerto / moeda; 
+            System.out.printf("%d moeda(s) de R$ %.2f%n", quantidadeMoedas, (double) moeda / 100); 
+            valorCerto %= moeda; 
+        }
+
+        /* System.out.println("NOTAS:");
+        for (int n : notas) {
+            System.out.printf("%d nota(s) de R$ %d.00\n", (int) dinheiro / n, n);
+            dinheiro %= n;
+        }
+
+        System.out.println("MOEDAS:");
+        for (double m : moedas) {
+            System.out.printf("%d moeda(s) de R$ %.2f\n", (int) (dinheiro / m), m);
+            dinheiro %= m;
+        } */
     }
 }
