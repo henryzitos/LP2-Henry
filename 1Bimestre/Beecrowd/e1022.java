@@ -64,18 +64,17 @@ public class e1022 {
         sc.close();
     }
 
-    public static int simplificador(int n1, int n2) {
-        do {
-            if (n1 % 2 == 0 && n2 % 2 == 0) {
-                System.out.println(n1 / 2 + "/" + n2 / 2);
-            } else if (n1 % 3 == 0 && n2 % 3 == 0) {
-                System.out.println(n1 / 3 + "/" + n2 / 3);
-            } else if (n1 % 5 == 0 && n2 % 5 == 0) {
-                System.out.println(n1 / 5 + "/" + n2 / 5);
-            } else {
-                System.out.println(n1 + "/" + n2);
-            }
-        } while (n1 % 2 == 0 && n2 % 2 == 0 && n1 % 3 == 0 && n2 % 3 == 0 && n1 % 5 == 0 && n2 % 5 == 0);
-        return n1 & n2;
+    public static void simplificador(int n1, int n2) {
+        int gcd = gcd(Math.abs(n1), Math.abs(n2));
+        n1 /= gcd;
+        n2 /= gcd;
+        System.out.println(n1 + "/" + n2);
+    }
+
+    public static int gcd(int a, int b) {
+        if (b == 0) {
+            return a;
+        }
+        return gcd(b, a % b);
     }
 }
